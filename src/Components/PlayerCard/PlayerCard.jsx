@@ -16,7 +16,7 @@ function PlayerCard({ player }) {
   } = player;
   return (
     <>
-      <div className="card w-96 player-card-shadow mb-5 p-4">
+      <div className="card player-card-shadow mb-5 p-4">
         <figure>
           <img className="max-h-50" src={img} alt="Shoes" />
         </figure>
