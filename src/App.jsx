@@ -14,8 +14,8 @@ const playersPromises = fetchPlayers();
 function App() {
   const [toggle, setToggle] = useState(true);
   const [availableBalance, setAvailableBalance] = useState(600000);
-  const [soldPlayer, setSoldPlayer] = useState([]);
-  console.log(soldPlayer);
+  const [soldPlayers, setSoldPlayers] = useState([]);
+  // console.log(soldPlayers);
   return (
     <>
       {/* {Navber} */}
@@ -35,7 +35,7 @@ function App() {
             onClick={() => setToggle(false)}
             className={`py-2 px-8 border-1 border-gray-300 font-bold border-l-0 rounded-r-xl ${!toggle ? "bg-[#ddfc2d]" : ""}`}
           >
-            Selected ({soldPlayer.length})
+            Selected ({soldPlayers.length})
           </button>
         </div>
       </div>
@@ -47,14 +47,14 @@ function App() {
             setAvailableBalance={setAvailableBalance}
             availableBalance={availableBalance}
             playersPromises={playersPromises}
-            setSoldPlayer={setSoldPlayer}
-            soldPlayer={soldPlayer}
+            setSoldPlayers={setSoldPlayers}
+            soldPlayers={soldPlayers}
           >
             {" "}
           </AvailablePlayers>
         </Suspense>
       ) : (
-        <SelectedPlayers soldPlayer={soldPlayer}></SelectedPlayers>
+        <SelectedPlayers soldPlayers={soldPlayers}></SelectedPlayers>
       )}
     </>
   );

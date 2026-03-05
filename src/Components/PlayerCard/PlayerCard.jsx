@@ -7,8 +7,8 @@ function PlayerCard({
   player,
   setAvailableBalance,
   availableBalance,
-  setSoldPlayer,
-  soldPlayer,
+  setSoldPlayers,
+  soldPlayers,
 }) {
   const [isSelected, setIsSelected] = useState(false);
   // console.log(player);
@@ -23,7 +23,7 @@ function PlayerCard({
     }
     setAvailableBalance(availableBalance - playerPrice);
     setIsSelected(true);
-    setSoldPlayer([...soldPlayer, player]);
+    setSoldPlayers([...soldPlayers, player]);
   };
 
   const {

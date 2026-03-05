@@ -4,8 +4,8 @@ function AvailablePlayers({
   playersPromises,
   setAvailableBalance,
   availableBalance,
-  setSoldPlayer,
-  soldPlayer,
+  setSoldPlayers,
+  soldPlayers,
 }) {
   const players = use(playersPromises);
   // console.log(players);
@@ -18,8 +18,8 @@ function AvailablePlayers({
             player={player}
             setAvailableBalance={setAvailableBalance}
             availableBalance={availableBalance}
-            setSoldPlayer={setSoldPlayer}
-            soldPlayer={soldPlayer}
+            setSoldPlayers={setSoldPlayers}
+            soldPlayers={soldPlayers}
           ></PlayerCard>
         ))}
       </div>
