@@ -3,7 +3,13 @@ import flagImage from "../../assets/flagImage.png";
 import userImage from "../../assets/userImage.png";
 import "./PlayerCard.css";
 
-function PlayerCard({ player, setAvailableBalance, availableBalance }) {
+function PlayerCard({
+  player,
+  setAvailableBalance,
+  availableBalance,
+  setSoldPlayer,
+  soldPlayer,
+}) {
   const [isSelected, setIsSelected] = useState(false);
   // console.log(player);
   // console.log(setAvailableBalance);
@@ -17,6 +23,7 @@ function PlayerCard({ player, setAvailableBalance, availableBalance }) {
     }
     setAvailableBalance(availableBalance - playerPrice);
     setIsSelected(true);
+    setSoldPlayer([...soldPlayer, player]);
   };
 
   const {
