@@ -3,9 +3,22 @@ import flagImage from "../../assets/flagImage.png";
 import userImage from "../../assets/userImage.png";
 import "./PlayerCard.css";
 
-function PlayerCard({ player }) {
-  console.log(player);
+function PlayerCard({ player, setAvailableBalance, availableBalance }) {
   const [isSelected, setIsSelected] = useState(false);
+  // console.log(player);
+  // console.log(setAvailableBalance);
+  const handleSelected = () => {
+    const playerPrice = parseInt(
+      player.price.split("USD").join("").split(",").join(""),
+    );
+    if (availableBalance < playerPrice) {
+      alert("Noo Cash");
+      return;
+    }
+    setAvailableBalance(availableBalance - playerPrice);
+    setIsSelected(true);
+  };
+
   const {
     name,
     img,
@@ -50,10 +63,12 @@ function PlayerCard({ player }) {
             <p className="font-bold">Price: ${price}</p>
             <button
               disabled={isSelected}
-              onClick={() => setIsSelected(true)}
+              onClick={() => {
+                handleSelected();
+              }}
               className="btn"
             >
-              {isSelected ? "Selected" : "Choose Player"}{" "}
+              {isSelected ? "Selected" : "Choose Player"}
             </button>
           </div>
           <div className="card-actions justify-end">
