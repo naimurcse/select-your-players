@@ -25,13 +25,17 @@ function PlayerCard({ player }) {
             <img className="max-w-5" src={userImage}></img>
             <h2 className="">{name}</h2>
           </div>
-          <div className="flex items-center justify-between border-b-2 border-gray-200 pb-3">
-            <div className="flex items-center gap-2 mt-4">
+          <div className="flex items-center justify-between border-b-2 border-gray-200 pb-3 mt-4">
+            {/* Flag and Country */}
+            <div className="flex items-center gap-2">
               <img src={flagImage} alt="" />
               <p>{country}</p>
             </div>
+
+            {/* Playing Role Button */}
             <button className="btn btn-sm">{playing_role}</button>
           </div>
+
           <div className="mt-4 flex items-center justify-between mb-4">
             <p className="font-bold">Rating</p>
             <p>{rating}</p>
