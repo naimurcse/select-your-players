@@ -1,7 +1,11 @@
 import deleteIcon from "../../assets/deleteIcon.png";
 
-function SoldPlayer({ player }) {
+function SoldPlayer({ player, removePlayer }) {
   const { name, img, playing_role } = player;
+
+  const handleRemove = (deletePlayer) => {
+    removePlayer(deletePlayer);
+  };
   return (
     <>
       <div className="shadow border-1 rounded-xl border-gray-200 py-3 px-4 mb-4 flex justify-between items-center">
@@ -15,7 +19,7 @@ function SoldPlayer({ player }) {
         </div>
 
         {/* Right Part */}
-        <button>
+        <button onClick={() => handleRemove(player)}>
           <img src={deleteIcon} alt="" />
         </button>
       </div>

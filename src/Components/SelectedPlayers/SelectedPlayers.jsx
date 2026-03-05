@@ -1,10 +1,14 @@
 import SoldPlayer from "../SoldPlayer/SoldPlayer";
 
-function SelectedPlayers({ soldPlayers }) {
+function SelectedPlayers({ soldPlayers, removePlayer }) {
   return (
     <div className="max-w-[1200px] mx-auto">
       {soldPlayers.map((player) => (
-        <SoldPlayer player={player}></SoldPlayer>
+        <SoldPlayer
+          key={player.id}
+          player={player}
+          removePlayer={removePlayer}
+        ></SoldPlayer>
       ))}
     </div>
   );

@@ -16,6 +16,16 @@ function App() {
   const [availableBalance, setAvailableBalance] = useState(6000000);
   const [soldPlayers, setSoldPlayers] = useState([]);
   // console.log(soldPlayers);
+  // let newList = [];
+  const removePlayer = (p) => {
+    const withoutRemovePlayers = soldPlayers.filter((x) => p.id != x.id);
+    setSoldPlayers(withoutRemovePlayers);
+    setAvailableBalance(
+      availableBalance +
+        parseInt(p.price.split("USD").join("").split(",").join("")),
+    );
+  };
+
   return (
     <>
       {/* {Navber} */}
@@ -58,7 +68,10 @@ function App() {
           </AvailablePlayers>
         </Suspense>
       ) : (
-        <SelectedPlayers soldPlayers={soldPlayers}></SelectedPlayers>
+        <SelectedPlayers
+          soldPlayers={soldPlayers}
+          removePlayer={removePlayer}
+        ></SelectedPlayers>
       )}
     </>
   );
