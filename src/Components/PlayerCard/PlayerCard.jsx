@@ -20,6 +20,9 @@ function PlayerCard({
     if (availableBalance < playerPrice) {
       alert("Noo Cash");
       return;
+    } else if (soldPlayers.length >= 6) {
+      alert("You have got 6 Players already!");
+      return;
     }
     setAvailableBalance(availableBalance - playerPrice);
     setIsSelected(true);

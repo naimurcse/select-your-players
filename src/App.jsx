@@ -13,7 +13,7 @@ const playersPromises = fetchPlayers();
 
 function App() {
   const [toggle, setToggle] = useState(true);
-  const [availableBalance, setAvailableBalance] = useState(600000);
+  const [availableBalance, setAvailableBalance] = useState(6000000);
   const [soldPlayers, setSoldPlayers] = useState([]);
   // console.log(soldPlayers);
   return (
