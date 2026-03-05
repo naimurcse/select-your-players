@@ -1,6 +1,7 @@
 import { Suspense, useState } from "react";
 import "./App.css";
 import AvailablePlayers from "./Components/AvailablePlayers/AvailablePlayers";
+import LoadingSpinner from "./Components/LoadingSpinner/LoadingSpinner";
 import Navbar from "./Components/Navbar/Navbar";
 import SelectedPlayers from "./Components/SelectedPlayers/SelectedPlayers";
 
@@ -32,8 +33,9 @@ function App() {
         </div>
       </div>
 
+      {/* Toggle for display either available players or Selected players */}
       {toggle ? (
-        <Suspense fallback={<h2>Loading...</h2>}>
+        <Suspense fallback={<LoadingSpinner>Loading...</LoadingSpinner>}>
           <AvailablePlayers playersPromises={playersPromises}>
             {" "}
           </AvailablePlayers>
