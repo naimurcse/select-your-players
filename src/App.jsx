@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 import "./App.css";
 import AvailablePlayers from "./Components/AvailablePlayers/AvailablePlayers";
 import Navbar from "./Components/Navbar/Navbar";
@@ -11,6 +11,8 @@ const fetchPlayers = async () => {
 
 function App() {
   const playersPromises = fetchPlayers();
+
+  const [toggle, setToggle] = useState(true);
 
   return (
     <>
@@ -30,13 +32,15 @@ function App() {
         </div>
       </div>
 
-      {/* Available Players*/}
-      <Suspense fallback={<h2>Loading...</h2>}>
-        <AvailablePlayers playersPromises={playersPromises}> </AvailablePlayers>
-      </Suspense>
-
-      {/* Selected Players */}
-      <SelectedPlayers></SelectedPlayers>
+      {toggle ? (
+        <Suspense fallback={<h2>Loading...</h2>}>
+          <AvailablePlayers playersPromises={playersPromises}>
+            {" "}
+          </AvailablePlayers>
+        </Suspense>
+      ) : (
+        <SelectedPlayers></SelectedPlayers>
+      )}
     </>
   );
 }
