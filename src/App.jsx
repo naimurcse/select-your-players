@@ -24,10 +24,16 @@ function App() {
       <div className="max-w-[1200px] mx-auto flex justify-between items-center my-8 pb-8 border-b-2 border-gray-200">
         <h2 className="font-bold text-3xl">Available Players </h2>
         <div>
-          <button className="py-2 px-8 border-1 border-gray-300 font-bold border-r-0 rounded-l-xl bg-[#ddfc2d]">
+          <button
+            onClick={() => setToggle(true)}
+            className={`py-2 px-8 border-1 border-gray-300 font-bold border-r-0 rounded-l-xl ${toggle ? "bg-[#ddfc2d]" : ""}`}
+          >
             Available
           </button>
-          <button className="py-2 px-8 border-1 border-gray-300 font-bold border-l-0 rounded-r-xl">
+          <button
+            onClick={() => setToggle(false)}
+            className={`py-2 px-8 border-1 border-gray-300 font-bold border-l-0 rounded-r-xl ${!toggle ? "bg-[#ddfc2d]" : ""}`}
+          >
             Selected (0)
           </button>
         </div>
