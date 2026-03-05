@@ -1,4 +1,5 @@
 import { Suspense, useState } from "react";
+import { ToastContainer } from "react-toastify";
 import "./App.css";
 import AvailablePlayers from "./Components/AvailablePlayers/AvailablePlayers";
 import LoadingSpinner from "./Components/LoadingSpinner/LoadingSpinner";
@@ -73,6 +74,7 @@ function App() {
           removePlayer={removePlayer}
         ></SelectedPlayers>
       )}
+      <ToastContainer></ToastContainer>
     </>
   );
 }

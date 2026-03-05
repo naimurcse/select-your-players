@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
 import flagImage from "../../assets/flagImage.png";
 import userImage from "../../assets/userImage.png";
 import "./PlayerCard.css";
@@ -18,10 +19,10 @@ function PlayerCard({
       player.price.split("USD").join("").split(",").join(""),
     );
     if (availableBalance < playerPrice) {
-      alert("Noo Cash");
+      toast("Noo Cash");
       return;
     } else if (soldPlayers.length >= 6) {
-      alert("You have got 6 Players already!");
+      toast("You have got 6 Players already!");
       return;
     }
     setAvailableBalance(availableBalance - playerPrice);
