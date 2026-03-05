@@ -23,7 +23,11 @@ function App() {
 
       {/* Players Button for Available and Selected */}
       <div className="max-w-[1200px] mx-auto flex justify-between items-center my-8 pb-8 border-b-2 border-gray-200">
-        <h2 className="font-bold text-3xl">Available Players </h2>
+        <h2 className="font-bold text-3xl">
+          {toggle
+            ? "Available Players"
+            : `Selected Players (${soldPlayers.length}/6)`}
+        </h2>
         <div>
           <button
             onClick={() => setToggle(true)}
